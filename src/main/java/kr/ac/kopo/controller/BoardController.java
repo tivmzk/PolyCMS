@@ -46,7 +46,7 @@ public class BoardController {
 		return "redirect:list";
 	}
 	
-	@GetMapping("/update/{bookId}")
+	@GetMapping("/update/{boardId}")
 	public String update(@PathVariable Long boardId, Model model) {
 		Board item = service.item(boardId);
 		model.addAttribute("item", item);

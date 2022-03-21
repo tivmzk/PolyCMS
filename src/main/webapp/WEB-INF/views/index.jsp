@@ -7,6 +7,13 @@
 <title></title>
 </head>
 <body>
-	<h1>PolyCMS</h1>
+	<div>
+		<h1>PolyCMS</h1>
+		<div>
+			<ul>
+				<li><a href="board/list">게시판 관리</a></li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>
