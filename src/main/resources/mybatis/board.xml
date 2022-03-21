@@ -12,6 +12,10 @@
 	<insert id="add">
 		INSERT INTO board_master
 		VALUES(BOARD_MASTER_SEQ.NEXTVAL, #{subject}, #{reply}, #{attach}, #{secret}, #{permission})
+		
+		<selectKey keyProperty="boardId" order="AFTER" resultType="Long">
+			SELECT BOARD_MASTER_SEQ.CURRVAL FROM DUAL
+		</selectKey>
 	</insert>
 	
 	<select id="item" resultType="Board">
@@ -35,4 +39,22 @@
 		DELETE FROM board_master
 		WHERE board_id=#{boardId}
 	</delete>
+	
+	<update id="create_board">
+		CREATE TABLE board_${boardId} (
+			article_id NUMBER NOT NULL,
+			subject VARCHAR2(128) NOT NULL,
+			contents CLOB,
+			reg_date DATE NOT NULL,
+			edit_date DATE,
+			view_count NUMBER DEFAULT 0,
+			good_count NUMBER DEFAULT 0,
+			bad_count NUMBER DEFAULT 0,
+			
+			CONSTRAINT PK_board_${boardId} PRIMARY KEY (article_id)
+		)
+	</update>
+	<update id="delete_board">
+		DROP TABLE board_${boardId}
+	</update>
 </mapper>

@@ -16,4 +16,8 @@ public interface BoardDao {
 
 	void delete(Long boardId);
 
+	void createTable(Long boardId);
+
+	void deleteTable(Long boardId);
+
 }

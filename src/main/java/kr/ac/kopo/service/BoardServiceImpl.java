@@ -26,6 +26,8 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void add(Board item) {
 		dao.add(item);
+		
+		dao.createTable(item.getBoardId());
 	}
 
 	@Override
@@ -36,6 +38,8 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void delete(Long boardId) {
 		dao.delete(boardId);
+		
+		dao.deleteTable(boardId);
 	}
 
 }
