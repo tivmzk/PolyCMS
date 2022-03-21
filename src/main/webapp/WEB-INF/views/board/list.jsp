@@ -43,6 +43,7 @@
 							<td>
 								<a href="update/${item.boardId}">수정</a>
 								<a href="delete/${item.boardId}">삭제</a>
+								<a href="${item.boardId}/article/list">게시글</a>
 							</td>
 						</tr>
 					</c:forEach>
