@@ -54,7 +54,16 @@
 			CONSTRAINT PK_board_${boardId} PRIMARY KEY (article_id)
 		)
 	</update>
+	
 	<update id="delete_board">
 		DROP TABLE board_${boardId}
+	</update>
+	
+	<update id="create_board_seq">
+		CREATE SEQUENCE BOARD_${boardId}_SEQ
+	</update>
+	
+	<update id="delete_board-seq">
+		DROP SEQUENCE BOARD_${boardId}_SEQ
 	</update>
 </mapper>

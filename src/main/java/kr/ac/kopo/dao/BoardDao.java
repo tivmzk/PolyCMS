@@ -20,4 +20,8 @@ public interface BoardDao {
 
 	void deleteTable(Long boardId);
 
+	void CreateSeq(Long boardId);
+
+	void deleteSeq(Long boardId);
+
 }
