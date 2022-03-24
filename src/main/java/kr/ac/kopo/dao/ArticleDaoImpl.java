@@ -47,4 +47,12 @@ public class ArticleDaoImpl implements ArticleDao {
 		sql.delete(NAMESPACE+"delete", map);
 	}
 
+	@Override
+	public void viewCounting(Long boardId, Long articleId, Long viewCount) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("boardId", boardId);
+		map.put("articleId", articleId);
+		map.put("viewCount", viewCount);
+		sql.update(NAMESPACE+"viewCounting", map);
+	}
 }

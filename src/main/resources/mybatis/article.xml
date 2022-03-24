@@ -24,7 +24,7 @@
 		UPDATE board_${boardId}
 		SET
 		subject=#{subject},
-		reply=#{contents},
+		contents=#{contents},
 		edit_date=SYSDATE
 		WHERE article_id=#{articleId}
 	</update>
@@ -33,4 +33,11 @@
 		DELETE FROM board_${boardId}
 		WHERE article_id=#{articleId}
 	</delete>
+	
+	<update id="viewCounting">
+		UPDATE board_${boardId}
+		SET
+		view_count=#{viewCount}
+		WHERE article_id=#{articleId}
+	</update>
 </mapper>

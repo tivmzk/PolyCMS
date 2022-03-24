@@ -18,6 +18,7 @@
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
+						<th>조회수</th>
 						<th>관리</th>
 					</tr>
 				</thead>
@@ -32,6 +33,7 @@
 						<tr>
 							<td>${item.articleId}</td>
 							<td><a href="view/${item.articleId}">${item.subject}</a></td>
+							<td>${item.viewCount}</td>
 							<td>
 								<a href="update/${item.articleId}">수정</a>
 								<a href="delete/${item.articleId}">삭제</a>
