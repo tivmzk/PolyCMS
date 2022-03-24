@@ -60,4 +60,11 @@ public class ArticleController {
 		service.delete(boardId, articleId);
 		return "redirect:../list";
 	}
+	
+	@GetMapping("/view/{articleId}")
+	public String view(@PathVariable Long boardId, @PathVariable Long articleId, Model model) {
+		Article item = service.item(boardId, articleId);
+		model.addAttribute("item", item);
+		return PATH+"view";
+	}
 }

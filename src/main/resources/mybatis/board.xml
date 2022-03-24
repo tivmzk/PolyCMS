@@ -63,7 +63,7 @@
 		CREATE SEQUENCE BOARD_${boardId}_SEQ
 	</update>
 	
-	<update id="delete_board-seq">
+	<update id="delete_board_seq">
 		DROP SEQUENCE BOARD_${boardId}_SEQ
 	</update>
 </mapper>
