@@ -64,7 +64,7 @@ public class ArticleController {
 	@GetMapping("/view/{articleId}")
 	public String view(@PathVariable Long boardId, @PathVariable Long articleId, Model model) {
 		Article item = service.item(boardId, articleId);
-		service.viewCounting(boardId, articleId, item.getViewCount());
+		service.counting(boardId, articleId, item.getViewCount(), "view_count");
 		model.addAttribute("item", item);
 		return PATH+"view";
 	}

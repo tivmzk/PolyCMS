@@ -48,11 +48,12 @@ public class ArticleDaoImpl implements ArticleDao {
 	}
 
 	@Override
-	public void viewCounting(Long boardId, Long articleId, Long viewCount) {
+	public void counting(Long boardId, Long articleId, Long count, String countColumn) {
 		Map<String, Object> map = new HashMap<>();
 		map.put("boardId", boardId);
 		map.put("articleId", articleId);
-		map.put("viewCount", viewCount);
-		sql.update(NAMESPACE+"viewCounting", map);
+		map.put("count", count);
+		map.put("countColumn", countColumn);
+		sql.update(NAMESPACE+"counting", map);
 	}
 }

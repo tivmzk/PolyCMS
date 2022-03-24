@@ -16,6 +16,6 @@ public interface ArticleService {
 
 	void delete(Long boardId, Long articleId);
 
-	void viewCounting(Long boardId, Long articleId, Long viewCount);
+	void counting(Long boardId, Long articleId, Long count, String countColumn);
 
 }

@@ -34,10 +34,10 @@
 		WHERE article_id=#{articleId}
 	</delete>
 	
-	<update id="viewCounting">
+	<update id="counting">
 		UPDATE board_${boardId}
 		SET
-		view_count=#{viewCount}
+		${countColumn}=#{count}
 		WHERE article_id=#{articleId}
 	</update>
 </mapper>

@@ -39,8 +39,8 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public void viewCounting(Long boardId, Long articleId, Long viewCount) {
-		dao.viewCounting(boardId, articleId, viewCount+1);
+	public void counting(Long boardId, Long articleId, Long count, String countColumn) {
+		dao.counting(boardId, articleId, count+1, countColumn);
 	}
 
 }
