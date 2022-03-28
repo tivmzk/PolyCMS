@@ -5,7 +5,14 @@ public class ArticleCount {
 	private Long articleId;
 	private String userId;
 	private String type;
+	private Long count;
 	
+	public Long getCount() {
+		return count;
+	}
+	public void setCount(Long count) {
+		this.count = count;
+	}
 	public Long getBoardId() {
 		return boardId;
 	}

@@ -25,7 +25,7 @@
 				<tbody>
 					<c:if test="${list.size() < 1}">
 						<tr>
-							<td colspan="7">등록 된 게시판이 없습니다.</td>
+							<td colspan="4">등록 된 게시판이 없습니다.</td>
 						</tr>
 					</c:if>
 					

@@ -77,6 +77,7 @@ public class ArticleController {
 		item.setBoardId(boardId);
 		item.setArticleId(articleId);
 		service.updateCount(item);
+		
 		return item;
 	}
 	
