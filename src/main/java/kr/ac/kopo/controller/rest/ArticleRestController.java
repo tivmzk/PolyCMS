@@ -32,4 +32,13 @@ public class ArticleRestController {
 		article.setBadCount(article.getBadCount()+1);
 		return article;
 	}
+	
+	@PutMapping("/view")
+	public Article view(@RequestBody Article item) {
+		Article article = service.item(item.getBoardId(), item.getArticleId());
+		article.setBoardId(item.getBoardId());
+		service.counting(item.getBoardId(), item.getArticleId(), article.getViewCount(), "view_count");
+		article.setViewCount(article.getViewCount()+1);
+		return article;
+	}
 }

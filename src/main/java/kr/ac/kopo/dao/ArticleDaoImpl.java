@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.model.Article;
+import kr.ac.kopo.model.ArticleCount;
 
 @Repository
 public class ArticleDaoImpl implements ArticleDao {
@@ -55,5 +56,20 @@ public class ArticleDaoImpl implements ArticleDao {
 		map.put("count", count);
 		map.put("countColumn", countColumn);
 		sql.update(NAMESPACE+"counting", map);
+	}
+
+	@Override
+	public void refCount(ArticleCount item) {
+		sql.update(NAMESPACE+"ref_count", item);
+	}
+
+	@Override
+	public void goodCount(ArticleCount item) {
+		sql.update(NAMESPACE+"good_count", item);
+	}
+
+	@Override
+	public void badCount(ArticleCount item) {
+		sql.update(NAMESPACE+"bad_count", item);
 	}
 }

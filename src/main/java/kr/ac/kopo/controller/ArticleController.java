@@ -8,9 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ac.kopo.model.Article;
+import kr.ac.kopo.model.ArticleCount;
 import kr.ac.kopo.service.ArticleService;
 
 @Controller
@@ -64,8 +67,17 @@ public class ArticleController {
 	@GetMapping("/view/{articleId}")
 	public String view(@PathVariable Long boardId, @PathVariable Long articleId, Model model) {
 		Article item = service.item(boardId, articleId);
-		service.counting(boardId, articleId, item.getViewCount(), "view_count");
 		model.addAttribute("item", item);
 		return PATH+"view";
 	}
+	
+	@PostMapping("/view/{articleId}")
+	@ResponseBody
+	public ArticleCount view(@PathVariable Long boardId, @PathVariable Long articleId, @RequestBody ArticleCount item) {
+		item.setBoardId(boardId);
+		item.setArticleId(articleId);
+		service.updateCount(item);
+		return item;
+	}
+	
 }
