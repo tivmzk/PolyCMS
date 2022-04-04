@@ -48,18 +48,12 @@ public class ArticleServiceImpl implements ArticleService {
 	public void updateCount(ArticleCount item) {
 		if("ref_count".equals(item.getType())) {
 			dao.refCount(item);
-			Long count = dao.item(item.getBoardId(), item.getArticleId()).getViewCount();
-			item.setCount(count);
 		}
 		else if("good_count".equals(item.getType())) {
 			dao.goodCount(item);
-			Long count = dao.item(item.getBoardId(), item.getArticleId()).getGoodCount();
-			item.setCount(count);
 		}
 		else if("bad_count".equals(item.getType())) {
 			dao.badCount(item);
-			Long count = dao.item(item.getBoardId(), item.getArticleId()).getGoodCount();
-			item.setCount(count);
 		}
 	}
 }
