@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.ac.kopo.model.Article;
 import kr.ac.kopo.model.ArticleCount;
 import kr.ac.kopo.service.ArticleService;
+import kr.ac.kopo.util.Pager;
 
 @Controller
 @RequestMapping("/board/{boardId}/article")
@@ -25,8 +26,8 @@ public class ArticleController {
 	final String PATH = "article/";
 	
 	@GetMapping("/list")
-	public String list(@PathVariable Long boardId, Model model) {
-		List<Article> list = service.list(boardId);
+	public String list(@PathVariable Long boardId, Model model, Pager pager) {
+		List<Article> list = service.list(boardId, pager);
 		model.addAttribute("list", list);
 		return PATH+"list";
 	}
@@ -81,4 +82,15 @@ public class ArticleController {
 		return item;
 	}
 	
+	@GetMapping("/dummy")
+	public String dummy(@PathVariable Long boardId) {
+		service.dummy(boardId);
+		return "redirect:list";
+	}
+	
+	@GetMapping("/init")
+	public String init(@PathVariable Long boardId) {
+		service.init(boardId);
+		return "redirect:list";
+	}
 }

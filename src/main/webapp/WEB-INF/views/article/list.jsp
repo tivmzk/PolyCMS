@@ -41,10 +41,33 @@
 						</tr>
 					</c:forEach>
 				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="4">
+							<div>
+								<div><a href="?page=1">처음</a></div>
+								<div><a href="?page=${pager.prev}">이전</a></div>
+								
+								<c:forEach items="${pager.list}" var="page">
+									<div><a href="?page=${page}">${page}</a></div>
+								</c:forEach>
+								
+								<div><a href="?page=${pager.next}">다음</a></div>
+								<div><a href="?page=${pager.last}">마지막</a></div>
+							</div>
+						</td>
+					</tr>
+				</tfoot>
 			</table>
 		</div>
 		<div>
 			<a href="add">추가</a>
+		</div>
+		<div>
+			<a href="dummy">대량 추가</a>
+		</div>
+		<div>
+			<a href="init">초기화</a>
 		</div>
 	</div>
 </body>

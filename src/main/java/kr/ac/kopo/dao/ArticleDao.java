@@ -4,10 +4,11 @@ import java.util.List;
 
 import kr.ac.kopo.model.Article;
 import kr.ac.kopo.model.ArticleCount;
+import kr.ac.kopo.util.Pager;
 
 public interface ArticleDao {
 
-	List<Article> list(Long boardId);
+	List<Article> list(Long boardId, Pager pager);
 
 	void add(Article item);
 
@@ -24,5 +25,7 @@ public interface ArticleDao {
 	void goodCount(ArticleCount item);
 
 	void badCount(ArticleCount item);
+
+	long total(Long boardId, Pager pager);
 
 }
