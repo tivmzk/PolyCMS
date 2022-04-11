@@ -12,6 +12,7 @@
 			<h3>게시글 등록</h3>
 		</div>
 		<form method="post">
+			<input type="hidden" name="memberId" value="${sessionScope.member.id}"/>
 			<div>
 				<label for="">제목</label>
 				<input type="text" name="subject"/>

@@ -13,7 +13,14 @@ public class Article {
 	private Long badCount;
 	
 	private Long boardId;
+	private String memberId;
 	
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
 	public Long getBoardId() {
 		return boardId;
 	}

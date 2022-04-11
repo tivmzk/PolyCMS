@@ -34,6 +34,16 @@
 				<li><a href="member/list">회원 관리</a></li>
 			</ul>
 		</div>
+		<div>
+			<ul>
+				<c:if test="${list.size() == 0}">
+					<li>등록 된 게시판이 없습니다.</li>
+				</c:if>
+				<c:forEach var="item" items="${list}">
+					<li><a href="board/${item.boardId}/article/list">${item.subject}</a></li>
+				</c:forEach>
+			</ul>
+		</div>
 	</div>
 </body>
 </html>

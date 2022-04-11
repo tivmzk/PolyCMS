@@ -43,7 +43,7 @@
 	<update id="create_board">
 		CREATE TABLE board_${boardId} (
 			article_id NUMBER NOT NULL,
-			id VARCHAR2(32),
+			member_id VARCHAR2(32),
 			subject VARCHAR2(128) NOT NULL,
 			contents CLOB,
 			reg_date DATE NOT NULL,
@@ -53,7 +53,7 @@
 			bad_count NUMBER DEFAULT 0,
 			
 			CONSTRAINT PK_board_${boardId} PRIMARY KEY (article_id),
-			CONSTRAINT FK_board_${boardId}_TO_member FOREIGN KEY(id)
+			CONSTRAINT FK_board_${boardId}_TO_member FOREIGN KEY(member_id)
 			REFERENCES member(id)
 		)
 	</update>

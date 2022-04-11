@@ -8,7 +8,21 @@ public class Pager {
 	private int perPage = 10;
 	private double total;
 	private int perGroup = 5;
+	private String keyword;
+	private int search;
 	
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	public int getSearch() {
+		return search;
+	}
+	public void setSearch(int search) {
+		this.search = search;
+	}
 	public int getPerGroup() {
 		return perGroup;
 	}

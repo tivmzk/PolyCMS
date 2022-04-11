@@ -7,6 +7,17 @@
 	<sql id="search">
 		SELECT *
 		FROM board_${boardId}
+		<where>
+			<if test="search == 1">
+				subject LIKE CONCAT('%', CONCAT(${keyword}, '%'))
+			</if>
+			<if test="search == 2">
+				contents LIKE CONCAT('%', CONCAT(${keyword}, '%'))
+			</if>
+			<if test="search == 3">
+				member_id LIKE CONCAT('%', CONCAT(${keyword}, '%'))
+			</if>
+		</where>
 		ORDER BY article_id DESC
 	</sql>
 
@@ -18,8 +29,8 @@
 	</select>
 	
 	<insert id="add">
-		INSERT INTO board_${boardId} (article_id, subject, contents, reg_date)
-		VALUES(BOARD_${boardId}_SEQ.NEXTVAL, #{subject}, #{contents}, SYSDATE)
+		INSERT INTO board_${boardId} (article_id, subject, contents, reg_date, member_id)
+		VALUES(BOARD_${boardId}_SEQ.NEXTVAL, #{subject}, #{contents}, SYSDATE, #{memberId})
 	</insert>
 	
 	<select id="item" resultType="Article">

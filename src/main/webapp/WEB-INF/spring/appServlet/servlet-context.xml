@@ -24,6 +24,17 @@
 	
 	<context:component-scan base-package="kr.ac.kopo" />
 	
-	
-	
+	<interceptors>
+		<interceptor>
+			<mapping path="/board/*/article/**"/>
+			<exclude-mapping path="/board/*/article/list"/>
+			<beans:bean class="kr.ac.kopo.util.UserInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/board/**"/>
+			<mapping path="/member/**"/>
+			<exclude-mapping path="/board/*/article/**"/>
+			<beans:bean class="kr.ac.kopo.util.AdminInterceptor"/>
+		</interceptor>
+	</interceptors>
 </beans:beans>
