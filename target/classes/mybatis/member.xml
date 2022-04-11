@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	<sql id="search">
+		SELECT * FROM member
+		ORDER BY reg_date DESC
+	</sql>
+
+	<select id="list" resultType="Member">
+		SELECT *
+		FROM (	SELECT ROWNUM AS rnum, t1.*
+		    	FROM (<include refid="search"/>) t1)
+		WHERE rnum BETWEEN (#{page} - 1) * #{perPage} + 1 AND #{page} * #{perPage}
+	</select>
+	<select id="item" resultType="Member">
+		SELECT *
+		FROM member
+		WHERE id LIKE #{id}
+	</select>
+	<select id="total" resultType="Long">
+		SELECT COUNT(*)
+		FROM (<include refid="search"/>)
+	</select>
+	<insert id="add">
+		INSERT INTO member
+		VALUES(#{id}, #{passwd}, #{name}, SYSDATE, #{grade})
+	</insert>
+	<update id="update">
+		UPDATE member
+		SET
+		passwd=#{passwd},
+		name=#{name},
+		grade=#{grade}
+		WHERE id=#{id}
+	</update>
+	<delete id="delete">
+		DELETE FROM member
+		WHERE id=#{id}
+	</delete>
+	<select id="login" resultType="Member">
+		SELECT *
+		FROM member
+		WHERE id=#{id} AND passwd=#{passwd}
+	</select>
+</mapper>
