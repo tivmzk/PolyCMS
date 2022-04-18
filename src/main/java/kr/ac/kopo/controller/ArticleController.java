@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.ac.kopo.model.Article;
 import kr.ac.kopo.model.ArticleCount;
+import kr.ac.kopo.model.Member;
 import kr.ac.kopo.pager.ArticlePager;
 import kr.ac.kopo.service.ArticleService;
 
@@ -40,7 +42,8 @@ public class ArticleController {
 	}
 	
 	@PostMapping("/add")
-	public String add(@PathVariable Long boardId, Article item) {
+	public String add(@PathVariable Long boardId, Article item, @SessionAttribute Member member) {
+		item.setMemberId(member.getId());
 		item.setBoardId(boardId);
 		service.add(item);
 		return "redirect:list";

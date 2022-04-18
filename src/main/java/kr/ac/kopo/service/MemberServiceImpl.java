@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.ac.kopo.aspects.PointcutLogin;
 import kr.ac.kopo.dao.MemberDao;
 import kr.ac.kopo.model.Member;
 import kr.ac.kopo.util.Pager;
@@ -41,6 +42,7 @@ public class MemberServiceImpl implements MemberService {
 		md.add(item);
 	}
 
+	@PointcutLogin
 	@Override
 	public boolean login(Member item) {
 		Member member = md.login(item);
