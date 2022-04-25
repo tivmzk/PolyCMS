@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
+<script src="/kopo/js/jquery_3.6.0.js"></script>
+<script src="/kopo/js/drag_order.js"></script>
 </head>
 <body>
 	<div>
@@ -91,5 +93,8 @@
 			<a href="init">초기화</a>
 		</div>
 	</div>
+	<script>
+		new DragOrder('tbody');
+	</script>
 </body>
 </html>
